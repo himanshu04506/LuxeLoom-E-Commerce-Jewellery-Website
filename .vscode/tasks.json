@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start LuxeLoom (PowerShell)",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/start.ps1"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Start LuxeLoom (Node)",
+      "type": "shell",
+      "command": "node",
+      "args": ["${workspaceFolder}/start.js"],
+      "problemMatcher": []
+    }
+  ]
+}

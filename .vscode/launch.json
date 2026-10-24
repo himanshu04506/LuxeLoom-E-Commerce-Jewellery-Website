@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Website in Chrome (http://localhost:5173)",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/client"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Backend Express Server (Port 5000)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/server/server.js",
+      "envFile": "${workspaceFolder}/server/.env"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run Full-Stack App (start.js)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/start.js"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full-Stack Debugger (Backend + Chrome)",
+      "configurations": [
+        "Launch Backend Express Server (Port 5000)",
+        "Launch Website in Chrome (http://localhost:5173)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #FAF8F5;
+    color: #18181B;
+  }
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Gold Gradient Utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 50%, #856429 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+}
+
+.bg-gold-shine {
+  background: linear-gradient(90deg, #C5A059 0%, #FDFBF7 50%, #C5A059 100%);
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 224, 216, 0.8);
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A6823F;
+}

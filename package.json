@@ -1,0 +1,29 @@
+{
+  "name": "luxeloom-jewellery",
+  "version": "1.0.0",
+  "description": "Premium Full-Stack Jewellery E-Commerce Platform with Dynamic Metal Pricing",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node start.js",
+    "setup": "npm install && cd server && npm install && cd ../client && npm install",
+    "server": "cd server && node server.js",
+    "client": "cd client && npm run dev",
+    "dev": "npx concurrently \"npm run server\" \"npm run client\"",
+    "seed": "cd server && node scripts/seed.js",
+    "build": "cd client && npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "jewellery",
+    "ecommerce",
+    "gold-rate",
+    "razorpay",
+    "react",
+    "express",
+    "mongodb"
+  ],
+  "author": "LuxeLoom",
+  "license": "ISC"
+}
