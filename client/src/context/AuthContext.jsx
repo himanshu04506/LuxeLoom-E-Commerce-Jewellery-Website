@@ -4,25 +4,36 @@ import { getMe, loginUser as loginApi, registerUser as registerApi } from '../se
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem('luxeloom_token') || null);
+  const [token, setToken] = useState(() => localStorage.getItem('luxeloom_token') || null);
+  const [user, setUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('luxeloom_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
       if (!token) {
+        setUser(null);
         setLoading(false);
         return;
       }
       try {
         const data = await getMe();
-        if (data.success) {
+        if (data && data.success && data.user) {
           setUser(data.user);
-        } else {
+          localStorage.setItem('luxeloom_user', JSON.stringify(data.user));
+        } else if (!user) {
+          // Only clear if we don't already have a valid local user
           logout();
         }
       } catch (err) {
-        logout();
+        // If network error, preserve the stored session in offline/cached mode
+        console.warn('[AuthContext] getMe network notice, using local session');
       } finally {
         setLoading(false);
       }
@@ -33,8 +44,9 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (credentials) => {
     const data = await loginApi(credentials);
-    if (data.success && data.token) {
+    if (data.success && data.token && data.user) {
       localStorage.setItem('luxeloom_token', data.token);
+      localStorage.setItem('luxeloom_user', JSON.stringify(data.user));
       setToken(data.token);
       setUser(data.user);
     }
@@ -43,16 +55,26 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     const data = await registerApi(userData);
-    if (data.success && data.token) {
+    if (data.success && data.token && data.user) {
       localStorage.setItem('luxeloom_token', data.token);
+      localStorage.setItem('luxeloom_user', JSON.stringify(data.user));
       setToken(data.token);
       setUser(data.user);
     }
     return data;
   };
 
+  const updateUser = (updatedUser) => {
+    if (updatedUser) {
+      const merged = { ...user, ...updatedUser };
+      setUser(merged);
+      localStorage.setItem('luxeloom_user', JSON.stringify(merged));
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem('luxeloom_token');
+    localStorage.removeItem('luxeloom_user');
     setToken(null);
     setUser(null);
   };
@@ -67,6 +89,7 @@ export const AuthProvider = ({ children }) => {
         isAdmin: user?.role === 'ADMIN',
         login,
         register,
+        updateUser,
         logout,
       }}
     >

@@ -27,10 +27,11 @@ const Login = () => {
       setLoading(true);
       const res = await login({ email, password });
       if (res.success) {
-        if (res.user.role === 'ADMIN') {
+        if (res.user?.role === 'ADMIN') {
           navigate('/admin/dashboard');
         } else {
-          navigate(from, { replace: true });
+          const destination = (from && from !== '/') ? from : '/profile';
+          navigate(destination, { replace: true });
         }
       } else {
         setToast({ message: res.message || 'Invalid credentials.', type: 'error' });

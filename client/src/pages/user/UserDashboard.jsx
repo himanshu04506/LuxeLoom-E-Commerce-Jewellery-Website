@@ -45,7 +45,13 @@ const UserDashboard = () => {
           </p>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
+          <Link
+            to="/profile"
+            className="bg-white/10 hover:bg-white/20 text-gold-300 border border-gold-400/40 px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors shadow-sm"
+          >
+            <User className="w-4 h-4 text-gold-400" /> My Profile
+          </Link>
           <Link
             to="/orders"
             className="bg-gold-500 hover:bg-gold-600 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition-colors shadow-md"
@@ -54,7 +60,7 @@ const UserDashboard = () => {
           </Link>
           <Link
             to="/addresses"
-            className="bg-zinc-800 hover:bg-zinc-700 text-gold-300 border border-gold-500/30 px-5 py-2.5 rounded-xl text-xs font-semibold transition-colors"
+            className="bg-zinc-800 hover:bg-zinc-700 text-gold-300 border border-gold-500/30 px-5 py-2.5 rounded-xl text-xs font-semibold transition-colors flex items-center gap-1.5"
           >
             <MapPin className="w-4 h-4" /> Addresses
           </Link>

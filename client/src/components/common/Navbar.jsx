@@ -137,66 +137,90 @@ const Navbar = () => {
 
             {/* User Profile Menu */}
             <div className="relative">
-              {isAuthenticated ? (
+              {isAuthenticated && user ? (
                 <div>
                   <button
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    className="flex items-center gap-2 p-1.5 rounded-full hover:bg-ivory transition-colors border border-gold-300/50"
+                    className="flex items-center gap-2 py-1.5 px-2.5 sm:px-3 rounded-full hover:bg-gold-50/80 transition-all border border-gold-300 shadow-xs group"
+                    title="Account & Profile"
                   >
-                    <div className="w-8 h-8 rounded-full bg-gold-500 text-white font-serif font-bold flex items-center justify-center text-sm shadow">
-                      {user.name.charAt(0).toUpperCase()}
+                    <div className="w-8 h-8 rounded-full bg-gold-500 text-white font-serif font-bold flex items-center justify-center text-sm shadow group-hover:scale-105 transition-transform">
+                      {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
                     </div>
-                    <ChevronDown className="w-4 h-4 text-zinc-500 hidden sm:block" />
+                    <div className="hidden sm:flex flex-col text-left">
+                      <span className="text-[9px] text-zinc-400 uppercase tracking-wider font-semibold leading-none">Account</span>
+                      <span className="text-xs font-bold text-obsidian leading-tight max-w-[95px] truncate">
+                        {user.name ? user.name.split(' ')[0] : 'Profile'}
+                      </span>
+                    </div>
+                    <ChevronDown className="w-3.5 h-3.5 text-zinc-500 hidden sm:block group-hover:text-gold-600 transition-colors" />
                   </button>
 
                   {isUserMenuOpen && (
                     <div
                       onMouseLeave={() => setIsUserMenuOpen(false)}
-                      className="absolute right-0 mt-2 w-56 bg-white border border-gold-200 rounded-lg shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2"
+                      className="absolute right-0 mt-2 w-64 bg-white border border-gold-200 rounded-2xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2"
                     >
-                      <div className="px-4 py-2 border-b border-zinc-100">
-                        <p className="text-sm font-semibold text-obsidian">{user.name}</p>
-                        <p className="text-xs text-zinc-500 truncate">{user.email}</p>
-                        {isAdmin && (
-                          <span className="inline-block mt-1 text-[10px] font-bold bg-gold-100 text-gold-700 px-2 py-0.5 rounded">
-                            ADMINISTRATOR
+                      <div className="px-4 py-3 border-b border-zinc-100 bg-gradient-to-br from-ivory to-white rounded-t-2xl">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-gold-500 text-white font-serif font-bold flex items-center justify-center text-base shadow">
+                            {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-bold text-obsidian truncate">{user.name || 'Member'}</p>
+                            <p className="text-xs text-zinc-500 truncate">{user.email || ''}</p>
+                          </div>
+                        </div>
+                        <div className="mt-2 flex items-center gap-2">
+                          <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-full ${isAdmin ? 'bg-gold-100 text-gold-800 border border-gold-300' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`}>
+                            {isAdmin ? 'ADMINISTRATOR' : 'VERIFIED MEMBER'}
                           </span>
-                        )}
+                        </div>
                       </div>
 
-                      {isAdmin ? (
+                      <div className="py-1">
                         <Link
-                          to="/admin/dashboard"
+                          to="/profile"
                           onClick={() => setIsUserMenuOpen(false)}
-                          className="flex items-center gap-2.5 px-4 py-2 text-sm text-gold-700 font-semibold hover:bg-gold-50"
+                          className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-zinc-800 hover:bg-gold-50 hover:text-gold-800 font-semibold transition-colors"
                         >
-                          <Shield className="w-4 h-4" /> Admin Control Center
+                          <User className="w-4 h-4 text-gold-600" /> My Profile
                         </Link>
-                      ) : (
+
+                        {isAdmin ? (
+                          <Link
+                            to="/admin/dashboard"
+                            onClick={() => setIsUserMenuOpen(false)}
+                            className="flex items-center gap-2.5 px-4 py-2 text-sm text-gold-700 font-semibold hover:bg-gold-50"
+                          >
+                            <Shield className="w-4 h-4" /> Admin Control Center
+                          </Link>
+                        ) : (
+                          <Link
+                            to="/dashboard"
+                            onClick={() => setIsUserMenuOpen(false)}
+                            className="flex items-center gap-2.5 px-4 py-2 text-sm text-zinc-700 hover:bg-ivory"
+                          >
+                            <Shield className="w-4 h-4 text-gold-600" /> User Dashboard
+                          </Link>
+                        )}
+
                         <Link
-                          to="/dashboard"
+                          to="/orders"
                           onClick={() => setIsUserMenuOpen(false)}
                           className="flex items-center gap-2.5 px-4 py-2 text-sm text-zinc-700 hover:bg-ivory"
                         >
-                          <User className="w-4 h-4 text-gold-600" /> User Dashboard
+                          <Package className="w-4 h-4 text-gold-600" /> My Orders
                         </Link>
-                      )}
 
-                      <Link
-                        to="/orders"
-                        onClick={() => setIsUserMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-4 py-2 text-sm text-zinc-700 hover:bg-ivory"
-                      >
-                        <Package className="w-4 h-4 text-gold-600" /> My Orders
-                      </Link>
-
-                      <Link
-                        to="/addresses"
-                        onClick={() => setIsUserMenuOpen(false)}
-                        className="flex items-center gap-2.5 px-4 py-2 text-sm text-zinc-700 hover:bg-ivory"
-                      >
-                        <MapPin className="w-4 h-4 text-gold-600" /> Saved Addresses
-                      </Link>
+                        <Link
+                          to="/addresses"
+                          onClick={() => setIsUserMenuOpen(false)}
+                          className="flex items-center gap-2.5 px-4 py-2 text-sm text-zinc-700 hover:bg-ivory"
+                        >
+                          <MapPin className="w-4 h-4 text-gold-600" /> Saved Addresses
+                        </Link>
+                      </div>
 
                       <div className="border-t border-zinc-100 mt-1 pt-1">
                         <button
@@ -204,7 +228,7 @@ const Navbar = () => {
                             setIsUserMenuOpen(false);
                             logout();
                           }}
-                          className="w-full text-left flex items-center gap-2.5 px-4 py-2 text-sm text-red-600 hover:bg-red-50"
+                          className="w-full text-left flex items-center gap-2.5 px-4 py-2 text-sm text-red-600 hover:bg-red-50 font-medium"
                         >
                           <LogOut className="w-4 h-4" /> Log Out
                         </button>
@@ -268,6 +292,84 @@ const Navbar = () => {
       {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-gold-200 px-4 pt-2 pb-6 space-y-4 shadow-xl">
+          {/* Mobile User Profile Section */}
+          <div className="pt-1 pb-3 border-b border-gold-200">
+            {isAuthenticated && user ? (
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 p-3 bg-ivory rounded-2xl border border-gold-200">
+                  <div className="w-10 h-10 rounded-full bg-gold-500 text-white font-serif font-bold flex items-center justify-center text-sm shadow">
+                    {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-bold text-obsidian truncate">{user.name || 'Member'}</p>
+                    <p className="text-xs text-zinc-500 truncate">{user.email || ''}</p>
+                    <span className={`inline-block mt-1 text-[9px] font-bold px-2 py-0.5 rounded-full ${isAdmin ? 'bg-gold-100 text-gold-800 border border-gold-300' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`}>
+                      {isAdmin ? 'ADMINISTRATOR' : 'VERIFIED MEMBER'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-xs font-semibold">
+                  <Link
+                    to="/profile"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-2 p-2.5 bg-white border border-gold-300 text-gold-900 rounded-xl hover:bg-gold-50 font-bold shadow-xs"
+                  >
+                    <User className="w-4 h-4 text-gold-600" /> My Profile
+                  </Link>
+                  <Link
+                    to={isAdmin ? "/admin/dashboard" : "/dashboard"}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-2 p-2.5 bg-white border border-gold-200 text-obsidian rounded-xl hover:bg-gold-50"
+                  >
+                    <Shield className="w-4 h-4 text-gold-600" /> Dashboard
+                  </Link>
+                  <Link
+                    to="/orders"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-2 p-2.5 bg-white border border-gold-200 text-obsidian rounded-xl hover:bg-gold-50"
+                  >
+                    <Package className="w-4 h-4 text-gold-600" /> My Orders
+                  </Link>
+                  <Link
+                    to="/addresses"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-2 p-2.5 bg-white border border-gold-200 text-obsidian rounded-xl hover:bg-gold-50"
+                  >
+                    <MapPin className="w-4 h-4 text-gold-600" /> Addresses
+                  </Link>
+                </div>
+
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    logout();
+                  }}
+                  className="w-full flex items-center justify-center gap-2 py-2 text-xs font-bold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-colors"
+                >
+                  <LogOut className="w-4 h-4" /> Log Out
+                </button>
+              </div>
+            ) : (
+              <div className="flex gap-2">
+                <Link
+                  to="/login"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex-1 text-center py-2 text-xs font-bold border border-gold-300 text-obsidian rounded-xl hover:bg-gold-50"
+                >
+                  Log In
+                </Link>
+                <Link
+                  to="/register"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex-1 text-center py-2 text-xs font-bold bg-gold-500 text-white rounded-xl shadow-sm hover:bg-gold-600"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
+          </div>
+
           <form onSubmit={handleSearch} className="relative mt-2">
             <input
               type="text"
