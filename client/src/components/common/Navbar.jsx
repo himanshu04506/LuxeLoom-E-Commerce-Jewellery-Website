@@ -35,13 +35,14 @@ const Navbar = () => {
   };
 
   const categories = [
-    { name: 'Rings', path: '/catalog?category=Rings' },
     { name: 'Necklaces', path: '/catalog?category=Necklaces' },
+    { name: 'Rings', path: '/catalog?category=Rings' },
+    { name: 'Chains', path: '/catalog?category=Chains' },
     { name: 'Earrings', path: '/catalog?category=Earrings' },
     { name: 'Bracelets', path: '/catalog?category=Bracelets' },
     { name: 'Bangles', path: '/catalog?category=Bangles' },
-    { name: 'Chains', path: '/catalog?category=Chains' },
-    { name: 'Pendants', path: '/catalog?category=Pendants' },
+    { name: 'Mangalsutra', path: '/catalog?category=Mangalsutra' },
+    { name: 'Traditional Gifts', path: '/catalog?category=Traditional Gifts' },
   ];
 
   return (
@@ -233,12 +234,25 @@ const Navbar = () => {
         </div>
 
         {/* Category Navigation Bar (Desktop) */}
-        <nav className="hidden md:flex items-center justify-center gap-8 py-2.5 border-t border-ivory-dark text-xs uppercase tracking-widest font-medium text-zinc-700">
-          <Link to="/catalog" className="hover:text-gold-600 transition-colors font-bold text-gold-700">
+        <nav className="hidden md:flex items-center justify-center gap-6 py-2.5 border-t border-ivory-dark text-xs uppercase tracking-widest font-medium text-zinc-700 overflow-x-auto no-scrollbar">
+          <Link
+            to="/"
+            className={`transition-colors font-bold ${location.pathname === '/' ? 'text-gold-600 border-b-2 border-gold-500 pb-0.5' : 'hover:text-gold-600'}`}
+          >
+            Home
+          </Link>
+          <Link
+            to="/catalog"
+            className={`transition-colors font-bold ${location.pathname === '/catalog' && !location.search ? 'text-gold-600 border-b-2 border-gold-500 pb-0.5' : 'text-gold-700 hover:text-gold-900'}`}
+          >
             All Jewellery
           </Link>
           {categories.map((cat) => (
-            <Link key={cat.name} to={cat.path} className="hover:text-gold-600 transition-colors">
+            <Link
+              key={cat.name}
+              to={cat.path}
+              className={`hover:text-gold-600 transition-colors ${location.search.includes(encodeURIComponent(cat.name)) ? 'text-gold-600 font-bold border-b-2 border-gold-500 pb-0.5' : ''}`}
+            >
               {cat.name}
             </Link>
           ))}
@@ -287,11 +301,18 @@ const Navbar = () => {
           </form>
 
           <div className="space-y-2">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Categories</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Navigation</p>
+            <Link
+              to="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-sm font-bold text-gold-700"
+            >
+              Home
+            </Link>
             <Link
               to="/catalog"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-sm font-semibold text-gold-700"
+              className="block text-sm font-semibold text-zinc-800 hover:text-gold-600"
             >
               All Jewellery
             </Link>

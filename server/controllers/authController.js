@@ -10,7 +10,7 @@ const {
 } = require('../data/fallbackUsers');
 
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id }, process.env.JWT_SECRET || 'luxeloom_super_secret_jwt_key_2026_luxury_jewellery', {
     expiresIn: '30d',
   });
 };

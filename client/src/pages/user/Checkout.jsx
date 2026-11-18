@@ -65,7 +65,7 @@ const Checkout = () => {
         currency: razorpayOrder.currency,
         name: 'LuxeLoom Fine Jewellery',
         description: `Insured Order #${order.orderId}`,
-        image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=200',
+        image: 'https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg',
         order_id: razorpayOrder.id,
         handler: async function (response) {
           // Step 3: Verify Razorpay signature on server
@@ -226,9 +226,9 @@ const Checkout = () => {
                 <div key={item._id} className="pt-3 first:pt-0 flex items-center justify-between gap-4 text-xs">
                   <div className="flex items-center gap-3">
                     <img
-                      src={item.product.images && item.product.images.length > 0 ? item.product.images[0] : 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800'}
+                      src={item.product.images && item.product.images.length > 0 ? item.product.images[0] : 'https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg'}
                       alt={item.product.name}
-                      className="w-14 h-14 object-cover rounded-lg border border-gold-200 bg-ivory"
+                      className="w-14 h-14 object-contain p-1 rounded-lg border border-gold-200 bg-white"
                     />
                     <div>
                       <h4 className="font-serif font-bold text-obsidian">{item.product.name}</h4>

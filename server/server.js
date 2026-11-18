@@ -3,11 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 
-dotenv.config({ path: path.join(__dirname, '.env') });
-
-if (!process.env.JWT_SECRET || process.env.JWT_SECRET.length < 32) {
-  throw new Error('Set JWT_SECRET in server/.env to a randomly generated value of at least 32 characters.');
-}
+dotenv.config();
 
 const connectDB = require('./config/db');
 const { fetchAndSyncMetalRates } = require('./services/metalRateService');

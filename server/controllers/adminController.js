@@ -94,7 +94,7 @@ const addProduct = async (req, res, next) => {
       wastagePercentage: Number(wastagePercentage) || 3.0,
       stoneCharges: Number(stoneCharges) || 0,
       gstPercentage: Number(gstPercentage) || 3.0,
-      images: images && images.length > 0 ? images : ['https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800'],
+      images: images && images.length > 0 ? images : ['https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg'],
       stock: Number(stock) || 10,
       sku: sku.toUpperCase(),
       isFeatured: Boolean(isFeatured),

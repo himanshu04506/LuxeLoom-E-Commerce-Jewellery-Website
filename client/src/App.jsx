@@ -9,6 +9,7 @@ import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import CartDrawer from './components/cart/CartDrawer';
 import ChatWidget from './components/support/ChatWidget';
+import ScrollToTop from './components/common/ScrollToTop';
 
 // Public Pages
 import Home from './pages/public/Home';
@@ -60,6 +61,7 @@ function App() {
   return (
     <ErrorBoundary>
       <Router>
+        <ScrollToTop />
         <AuthProvider>
           <MetalRateProvider>
             <CartProvider>

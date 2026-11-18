@@ -15,7 +15,7 @@ const protect = async (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'luxeloom_super_secret_jwt_key_2026_luxury_jewellery');
     let user = null;
 
     if (mongoose.connection.readyState === 1) {

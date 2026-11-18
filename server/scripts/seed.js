@@ -13,46 +13,52 @@ const productsData = require('../data/productsData');
 
 const categoriesData = [
   {
-    name: 'Rings',
-    slug: 'rings',
-    description: 'Solitaire, halo, eternity, and classic gold rings designed for elegance.',
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80&fm=webp',
-  },
-  {
     name: 'Necklaces',
     slug: 'necklaces',
-    description: 'Royal bridal chokers, temple gold necklaces, and diamond line pendants.',
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80&fm=webp',
+    description: 'Royal bridal chokers, Kundan Polki sets, and handcrafted heirloom necklaces.',
+    image: 'https://www.soniscreations.in/uploads/products/sonis-creations-pastel-pink-drop-kundan-choker-necklace-earrings.jpg',
   },
   {
-    name: 'Earrings',
-    slug: 'earrings',
-    description: 'Gold jhumkas, diamond studs, chandbalis, and sleek drop earrings.',
-    image: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=800&q=80&fm=webp',
-  },
-  {
-    name: 'Bracelets',
-    slug: 'bracelets',
-    description: 'Flexible tennis bracelets, gold kadas, and charm wristwear.',
-    image: 'https://images.unsplash.com/photo-1611591475143-4f8a77496773?auto=format&fit=crop&w=800&q=80&fm=webp',
-  },
-  {
-    name: 'Bangles',
-    slug: 'bangles',
-    description: 'Traditional 22K gold bangles, carved kada sets, and silver cuffs.',
-    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80&fm=webp',
+    name: 'Rings',
+    slug: 'rings',
+    description: 'American diamond solitaires, Korean anti-tarnish bands, and classic 18K/22K gold rings.',
+    image: 'https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg',
   },
   {
     name: 'Chains',
     slug: 'chains',
-    description: 'Italian rope chains, box chains, and heavy mens gold curb links.',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80&fm=webp',
+    description: 'Designer enamel pendant chains, Italian wheat chains, and crescent moon medallion links.',
+    image: 'https://www.soniscreations.in/uploads/products/kiyu-ziyu-floral-blossom-chain.jpg',
   },
   {
-    name: 'Pendants',
-    slug: 'pendants',
-    description: 'Religious motifs, gemstone lockets, and minimalist everyday pendants.',
-    image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=800&q=80&fm=webp',
+    name: 'Earrings',
+    slug: 'earrings',
+    description: 'Antique gold filigree jhumkas, chandelier drops, and diamond pavé studs.',
+    image: 'https://www.soniscreations.in/uploads/products/sonis-creations-antique-gold-floral-filigree-jhumka-320.jpg',
+  },
+  {
+    name: 'Bracelets',
+    slug: 'bracelets',
+    description: 'Emerald baguette tennis bracelets, dual-row crystal pavé chains, and luxury charms.',
+    image: 'https://www.soniscreations.in/uploads/products/kiyu-ziyu-emerald-baguette-tennis-bracelet.jpg',
+  },
+  {
+    name: 'Bangles',
+    slug: 'bangles',
+    description: 'Royal chevron pavé hinged bangles, fluted cuff bracelets, and traditional gold kadas.',
+    image: 'https://www.soniscreations.in/uploads/products/kiyu-ziyu-royal-chevron-pave-crystal-hinged-bracelet.jpg',
+  },
+  {
+    name: 'Mangalsutra',
+    slug: 'mangalsutra',
+    description: 'Sacred modern solitaires, pear crystal motifs, and traditional black bead auspicious mangalsutras.',
+    image: 'https://www.soniscreations.in/uploads/products/kiyu-ziyu-trio-pear-crystal-mangalsutra.jpg',
+  },
+  {
+    name: 'Traditional Gifts',
+    slug: 'traditional-gifts',
+    description: 'Silver plated lotus bowl sets, auspicious Swastik diyas, and Vastu tortoise crafts.',
+    image: 'https://www.soniscreations.in/uploads/products/sonis-creations-four-bowl-set-silver-plated-lotus-design-ac36.jpg',
   },
 ];
 
@@ -84,7 +90,7 @@ const seedDatabase = async () => {
 
     // Seed Products
     await Product.insertMany(productsData);
-    console.log(`[Seed Script] ${productsData.length} Jewellery products seeded (50 per category with WebP images).`);
+    console.log(`[Seed Script] ${productsData.length} Jewellery products seeded from soniscreations.in.`);
 
     // Seed Users (1 Admin & 1 Customer)
     await User.create({

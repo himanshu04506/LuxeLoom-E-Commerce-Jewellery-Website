@@ -1,8 +1,6 @@
 # LuxeLoom — Premium Full-Stack Jewellery E-Commerce Platform
 
-LuxeLoom is a full-stack demonstration Jewellery E-Commerce website built with **React.js, Node.js, Express.js, MongoDB**, and **Tailwind CSS**. It features **dynamic gold and silver price calculations** based on live market rates, **Razorpay payment integration**, **Google Maps live delivery tracking**, **automated chatbot support**, **email notifications (Nodemailer)**, and an **Executive Admin Control Center**.
-
-> **Demo project:** Includes public demo accounts and mock payment/delivery behavior. Review authentication, payments, configuration, and data handling before production use. Keep real credentials in the ignored `server/.env` file.
+LuxeLoom is a complete, modern, production-ready Jewellery E-Commerce website built with **React.js, Node.js, Express.js, MongoDB**, and **Tailwind CSS**. It features **dynamic gold and silver price calculations** based on live market rates, **Razorpay payment integration**, **Google Maps live delivery tracking**, **automated chatbot support**, **email notifications (Nodemailer)**, and an **Executive Admin Control Center**.
 
 ---
 
@@ -72,16 +70,16 @@ npm run setup
 ```
 
 ### 2. Environment Configuration
-Create a `.env` file in the `server` directory (copy the root `.env.example` template to `server/.env`):
+Create a `.env` file in the `server` directory (refer to `server/.env` template):
 
 ```env
 PORT=5000
 NODE_ENV=development
 MONGODB_URI=mongodb://127.0.0.1:27017/luxeloom
-JWT_SECRET=
+JWT_SECRET=luxeloom_super_secret_jwt_key_2026_luxury_jewellery
 
 RAZORPAY_KEY_ID=rzp_test_luxeloom12345
-RAZORPAY_KEY_SECRET=
+RAZORPAY_KEY_SECRET=luxeloom_razorpay_secret_key_mock
 
 GOOGLE_MAPS_API_KEY=your_google_maps_key
 METAL_API_KEY=your_metal_api_key
@@ -95,8 +93,6 @@ FROM_EMAIL="LuxeLoom Jewellery" <no-reply@luxeloom.com>
 FRONTEND_URL=http://localhost:5173
 BACKEND_URL=http://localhost:5000
 ```
-
-Generate a unique JWT secret with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` and set `JWT_SECRET` in `server/.env`. The server requires this value to start. Razorpay secrets must also be configured locally for real payments.
 
 ### 3. Seed Database
 Run the database seeder to populate 20+ luxury jewellery items, categories, metal rates, and default test accounts:

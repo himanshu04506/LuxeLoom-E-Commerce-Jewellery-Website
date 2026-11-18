@@ -93,13 +93,13 @@ const ProductDetail = () => {
         
         {/* Left: Gallery View */}
         <div className="space-y-4">
-          <div className="aspect-square bg-ivory rounded-2xl overflow-hidden border border-gold-300 shadow-lg relative">
+          <div className="aspect-square bg-white rounded-2xl overflow-hidden border border-gold-300 shadow-lg relative p-4 flex items-center justify-center">
             <img
-              src={selectedImage || 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800'}
+              src={selectedImage || 'https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg'}
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain object-center"
             />
-            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-obsidian border border-gold-300">
+            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-obsidian border border-gold-300 shadow-sm">
               {product.metalType} {product.purity}
             </div>
           </div>
@@ -111,11 +111,11 @@ const ProductDetail = () => {
                 <button
                   key={idx}
                   onClick={() => setSelectedImage(img)}
-                  className={`w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${
+                  className={`w-20 h-20 rounded-xl overflow-hidden border-2 bg-white flex items-center justify-center transition-all ${
                     selectedImage === img ? 'border-gold-500 scale-105 shadow-md' : 'border-gold-200 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <img src={img} alt={`Thumbnail ${idx}`} className="w-full h-full object-cover" />
+                  <img src={img} alt={`Thumbnail ${idx}`} className="w-full h-full object-contain p-1" />
                 </button>
               ))}
             </div>

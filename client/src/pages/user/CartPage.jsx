@@ -42,9 +42,9 @@ const CartPage = () => {
               >
                 <div className="flex gap-4 items-center">
                   <img
-                    src={item.product.images && item.product.images.length > 0 ? item.product.images[0] : 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800'}
+                    src={item.product.images && item.product.images.length > 0 ? item.product.images[0] : 'https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg'}
                     alt={item.product.name}
-                    className="w-24 h-24 object-cover rounded-xl border border-gold-200 bg-ivory shrink-0"
+                    className="w-24 h-24 object-contain p-1 rounded-xl border border-gold-200 bg-white shrink-0"
                   />
                   <div>
                     <h3 className="font-serif font-bold text-base text-obsidian">{item.product.name}</h3>

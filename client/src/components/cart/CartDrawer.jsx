@@ -67,10 +67,10 @@ const CartDrawer = () => {
                     src={
                       item.product.images && item.product.images.length > 0
                         ? item.product.images[0]
-                        : 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800'
+                        : 'https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg'
                     }
                     alt={item.product.name}
-                    className="w-20 h-20 object-cover rounded-lg border border-gold-200 bg-ivory shrink-0"
+                    className="w-20 h-20 object-contain p-1 rounded-lg border border-gold-200 bg-white shrink-0"
                   />
                   <div className="flex-1 flex flex-col justify-between text-xs">
                     <div>

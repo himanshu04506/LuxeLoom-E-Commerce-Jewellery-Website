@@ -25,7 +25,7 @@ const AdminProducts = () => {
     wastagePercentage: 3.5,
     stoneCharges: 0,
     gstPercentage: 3.0,
-    images: ['https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800'],
+    images: ['https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg'],
     stock: 10,
     sku: '',
     isFeatured: false,
@@ -64,7 +64,7 @@ const AdminProducts = () => {
       wastagePercentage: 3.5,
       stoneCharges: 0,
       gstPercentage: 3.0,
-      images: ['https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800'],
+      images: ['https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg'],
       stock: 10,
       sku: `JW-${Date.now().toString().slice(-6)}`,
       isFeatured: false,
@@ -173,9 +173,9 @@ const AdminProducts = () => {
                   <tr key={p._id} className="hover:bg-gold-50/40 transition-colors">
                     <td className="p-4 flex items-center gap-3">
                       <img
-                        src={p.images && p.images.length > 0 ? p.images[0] : 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800'}
+                        src={p.images && p.images.length > 0 ? p.images[0] : 'https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg'}
                         alt={p.name}
-                        className="w-12 h-12 object-cover rounded-lg border border-gold-200"
+                        className="w-12 h-12 object-contain p-1 rounded-lg border border-gold-200 bg-white"
                       />
                       <div>
                         <h4 className="font-serif font-bold text-obsidian text-sm">{p.name}</h4>
@@ -267,7 +267,7 @@ const AdminProducts = () => {
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                   className="w-full p-2.5 bg-ivory border border-gold-200 rounded-lg"
                 >
-                  {['Rings', 'Necklaces', 'Earrings', 'Bracelets', 'Bangles', 'Chains', 'Pendants'].map((c) => (
+                  {['Necklaces', 'Rings', 'Chains', 'Earrings', 'Bracelets', 'Bangles', 'Mangalsutra', 'Traditional Gifts'].map((c) => (
                     <option key={c} value={c}>{c}</option>
                   ))}
                 </select>

@@ -59,16 +59,16 @@ const ProductCard = ({ product, onShowToast }) => {
         </div>
 
         {/* Product Image */}
-        <Link to={`/product/${product._id}`} className="relative block aspect-square overflow-hidden bg-ivory">
+        <Link to={`/product/${product._id}`} className="relative block aspect-square overflow-hidden bg-white p-3 flex items-center justify-center border-b border-gold-100">
           <img
-            src={product.images && product.images.length > 0 ? product.images[0] : 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800'}
+            src={product.images && product.images.length > 0 ? product.images[0] : 'https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg'}
             alt={product.name}
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-obsidian/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-            <span className="bg-white/90 text-obsidian px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all">
-              <Eye className="w-3.5 h-3.5" /> Quick View
+          <div className="absolute inset-0 bg-obsidian/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+            <span className="bg-white/95 text-obsidian border border-gold-200 px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all">
+              <Eye className="w-3.5 h-3.5 text-gold-600" /> Quick View
             </span>
           </div>
         </Link>

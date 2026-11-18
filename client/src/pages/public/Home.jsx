@@ -35,12 +35,14 @@ const Home = () => {
   }, []);
 
   const categories = [
-    { name: 'Rings', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800', count: 'Solitaire & Bands' },
-    { name: 'Necklaces', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800', count: 'Bridal & Chokers' },
-    { name: 'Earrings', image: 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=800', count: 'Jhumkas & Studs' },
-    { name: 'Bracelets', image: 'https://images.unsplash.com/photo-1611591475143-4f8a77496773?q=80&w=800', count: 'Tennis & Kadas' },
-    { name: 'Bangles', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800', count: '22K Gold Pair Sets' },
-    { name: 'Chains', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800', count: 'Italian Rope Chains' },
+    { name: 'Necklaces', image: 'https://www.soniscreations.in/uploads/products/sonis-creations-pastel-pink-drop-kundan-choker-necklace-earrings.jpg', count: 'Bridal & Chokers' },
+    { name: 'Rings', image: 'https://www.soniscreations.in/uploads/products/sonis-creations-crisscross-bezel-cz-gold-ring-260.jpg', count: 'Solitaire & Bands' },
+    { name: 'Chains', image: 'https://www.soniscreations.in/uploads/products/kiyu-ziyu-floral-blossom-chain.jpg', count: 'Designer Chains & Pendants' },
+    { name: 'Earrings', image: 'https://www.soniscreations.in/uploads/products/sonis-creations-antique-gold-floral-filigree-jhumka-320.jpg', count: 'Jhumkas & Studs' },
+    { name: 'Bracelets', image: 'https://www.soniscreations.in/uploads/products/kiyu-ziyu-emerald-baguette-tennis-bracelet.jpg', count: 'Tennis & Charms' },
+    { name: 'Bangles', image: 'https://www.soniscreations.in/uploads/products/kiyu-ziyu-royal-chevron-pave-crystal-hinged-bracelet.jpg', count: '22K Kada Bangles' },
+    { name: 'Mangalsutra', image: 'https://www.soniscreations.in/uploads/products/kiyu-ziyu-trio-pear-crystal-mangalsutra.jpg', count: 'Modern & Traditional' },
+    { name: 'Traditional Gifts', image: 'https://www.soniscreations.in/uploads/products/sonis-creations-four-bowl-set-silver-plated-lotus-design-ac36.jpg', count: 'Silver Bowls & Crafts' },
   ];
 
   return (
@@ -113,16 +115,17 @@ const Home = () => {
 
           {/* Hero Visual Card */}
           <div className="relative flex justify-center">
-            <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-2 border-gold-400/40">
-              <img
-                src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000"
-                alt="Luxury Royal Gold Jewellery Collection"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80" />
-              <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-2xl border border-gold-300 text-obsidian shadow-xl space-y-1">
+            <div className="relative w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border-2 border-gold-400/40 bg-zinc-950 p-4 space-y-3">
+              <div className="aspect-square bg-zinc-900 rounded-2xl p-2 flex items-center justify-center overflow-hidden border border-gold-500/20">
+                <img
+                  src="https://www.soniscreations.in/uploads/products/sonis-creations-kundan-polki-bridal-necklace-earrings-maang-tikka.jpg"
+                  alt="Luxury Royal Gold Jewellery Collection"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="p-3.5 bg-white/95 backdrop-blur-md rounded-xl border border-gold-300 text-obsidian shadow-lg space-y-1">
                 <div className="flex justify-between items-center text-xs font-bold">
-                  <span className="text-gold-700 font-serif">Maharani Bridal Choker</span>
+                  <span className="text-gold-800 font-serif">Kundan Polki Bridal Set</span>
                   <span className="bg-gold-500 text-white px-2 py-0.5 rounded-full text-[10px]">22K Pure Gold</span>
                 </div>
                 <p className="text-[11px] text-zinc-600">Calculated via live market rate formula with itemized transparency.</p>
@@ -140,23 +143,32 @@ const Home = () => {
           <p className="text-xs text-zinc-500 uppercase tracking-widest">Handcrafted in 24K, 22K, 18K Gold & Sterling Silver</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {categories.map((cat) => (
             <Link
               key={cat.name}
               to={`/catalog?category=${cat.name}`}
-              className="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-ivory border border-gold-200 shadow-xs hover:shadow-xl hover:border-gold-400 transition-all"
+              className="group bg-white rounded-2xl overflow-hidden border border-gold-200 shadow-xs hover:shadow-xl hover:border-gold-400 transition-all flex flex-col"
             >
-              <img
-                src={cat.image}
-                alt={cat.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/20 to-transparent flex flex-col justify-end p-4 text-white">
-                <h3 className="font-serif font-bold text-base text-gold-300 group-hover:text-white transition-colors">
-                  {cat.name}
-                </h3>
-                <p className="text-[10px] text-zinc-300">{cat.count}</p>
+              <div className="aspect-square bg-stone-50 p-3 flex items-center justify-center overflow-hidden border-b border-gold-100">
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-4 flex flex-col justify-between flex-1 bg-white">
+                <div>
+                  <h3 className="font-serif font-bold text-sm sm:text-base text-obsidian group-hover:text-gold-600 transition-colors">
+                    {cat.name}
+                  </h3>
+                  <p className="text-xs text-zinc-500 mt-0.5">{cat.count}</p>
+                </div>
+                <div className="mt-3 flex items-center text-xs font-semibold text-gold-600 group-hover:text-gold-700">
+                  <span>Explore Collection</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </Link>
           ))}

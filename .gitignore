@@ -1,18 +1,23 @@
-# Dependencies and build output
+# Dependencies
 node_modules/
-dist/
-build/
-coverage/
+client/node_modules/
+server/node_modules/
 
-# Local configuration and credentials
+# Production build artifacts
+client/dist/
+netlify-deploy/
+
+# Environment variables & secrets
 .env
-.env.*
-!.env.example
-!.env.*.example
-*.pem
-*.key
+server/.env
+*.env.local
 
-# Logs and machine files
+# Scratch and logs
+scratch/
 *.log
+.system_generated/
+
+# Editor & OS files
+.vscode/
 .DS_Store
 Thumbs.db

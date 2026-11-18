@@ -138,13 +138,14 @@ export const getCategories = async () => {
   return {
     success: true,
     categories: [
-      { name: 'Rings', slug: 'rings' },
       { name: 'Necklaces', slug: 'necklaces' },
+      { name: 'Rings', slug: 'rings' },
+      { name: 'Chains', slug: 'chains' },
       { name: 'Earrings', slug: 'earrings' },
       { name: 'Bracelets', slug: 'bracelets' },
       { name: 'Bangles', slug: 'bangles' },
-      { name: 'Chains', slug: 'chains' },
-      { name: 'Pendants', slug: 'pendants' },
+      { name: 'Mangalsutra', slug: 'mangalsutra' },
+      { name: 'Traditional Gifts', slug: 'traditional-gifts' },
     ]
   };
 };

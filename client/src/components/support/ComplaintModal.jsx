@@ -123,7 +123,7 @@ const ComplaintModal = ({ initialOrderId = '', onClose, onSuccess }) => {
             <div className="flex gap-2">
               <input
                 type="url"
-                placeholder="https://images.unsplash.com/..."
+                placeholder="https://example.com/item-photo.jpg"
                 value={attachmentUrl}
                 onChange={(e) => setAttachmentUrl(e.target.value)}
                 className="flex-1 p-2.5 bg-ivory border border-gold-200 rounded-lg text-xs"

@@ -2,7 +2,7 @@ import React from 'react';
 import { Filter, RotateCcw, Search, X } from 'lucide-react';
 
 const ProductFilter = ({ filters, onFilterChange, onReset }) => {
-  const categories = ['Rings', 'Necklaces', 'Earrings', 'Bracelets', 'Bangles', 'Chains', 'Pendants'];
+  const categories = ['Necklaces', 'Rings', 'Chains', 'Earrings', 'Bracelets', 'Bangles', 'Mangalsutra', 'Traditional Gifts'];
 
   // Count how many filters are active
   const activeFilterCount = [

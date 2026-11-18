@@ -16,9 +16,9 @@ const AboutUs = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <img
-          src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000"
+          src="https://www.soniscreations.in/uploads/products/sonis-creations-kundan-polki-bridal-necklace-earrings-maang-tikka.jpg"
           alt="LuxeLoom Craftsmanship"
-          className="rounded-3xl shadow-2xl border-2 border-gold-300 object-cover aspect-video"
+          className="rounded-3xl shadow-2xl border-2 border-gold-300 object-contain aspect-video bg-white p-2"
         />
         <div className="space-y-4 text-xs leading-relaxed text-zinc-600">
           <h2 className="font-serif text-2xl font-bold text-obsidian">The LuxeLoom Promise</h2>

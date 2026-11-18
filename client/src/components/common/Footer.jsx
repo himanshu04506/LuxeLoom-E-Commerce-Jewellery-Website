@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Award, Truck, Lock, PhoneCall, Mail, MapPin } from 'lucide-react';
+import { ShieldCheck, Award, Truck, Lock, PhoneCall, Mail, MapPin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -65,19 +65,33 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 text-gold-400" /> LuxeLoom Flagship, Connaught Place, New Delhi
               </p>
             </div>
+            <div className="pt-2">
+              <a
+                href="https://www.instagram.com/soniscreations.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900 border border-gold-500/40 text-gold-300 hover:text-white hover:border-gold-400 hover:bg-zinc-800 transition-all text-xs font-medium group"
+                aria-label="Follow Soni's Creations on Instagram"
+              >
+                <Instagram className="w-4 h-4 text-pink-400 group-hover:scale-110 transition-transform" />
+                <span>Follow on Instagram (@soniscreations.in)</span>
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="font-serif text-gold-400 font-semibold mb-4 uppercase text-xs tracking-widest">Collections</h4>
             <ul className="space-y-2 text-xs text-zinc-400">
+              <li><Link to="/" className="hover:text-gold-400 font-semibold text-gold-300 transition-colors">Home Page</Link></li>
+              <li><Link to="/catalog?category=Necklaces" className="hover:text-white transition-colors">Necklaces & Chokers</Link></li>
               <li><Link to="/catalog?category=Rings" className="hover:text-white transition-colors">Gold & Solitaire Rings</Link></li>
-              <li><Link to="/catalog?category=Necklaces" className="hover:text-white transition-colors">Bridal Chokers & Necklaces</Link></li>
-              <li><Link to="/catalog?category=Earrings" className="hover:text-white transition-colors">Gold Jhumkas & Studs</Link></li>
-              <li><Link to="/catalog?category=Bracelets" className="hover:text-white transition-colors">Diamond & Charm Bracelets</Link></li>
-              <li><Link to="/catalog?category=Bangles" className="hover:text-white transition-colors">Traditional 22K Gold Bangles</Link></li>
-              <li><Link to="/catalog?category=Chains" className="hover:text-white transition-colors">Italian Rope & Box Chains</Link></li>
-              <li><Link to="/catalog?category=Pendants" className="hover:text-white transition-colors">Religious & Gemstone Pendants</Link></li>
+              <li><Link to="/catalog?category=Chains" className="hover:text-white transition-colors">Designer Chains & Pendants</Link></li>
+              <li><Link to="/catalog?category=Earrings" className="hover:text-white transition-colors">Jhumkas & Pearl Drops</Link></li>
+              <li><Link to="/catalog?category=Bracelets" className="hover:text-white transition-colors">Luxury Bracelets & Charms</Link></li>
+              <li><Link to="/catalog?category=Bangles" className="hover:text-white transition-colors">Kada Bangles & Cuffs</Link></li>
+              <li><Link to="/catalog?category=Mangalsutra" className="hover:text-white transition-colors">Sacred Mangalsutra</Link></li>
+              <li><Link to="/catalog?category=Traditional Gifts" className="hover:text-white transition-colors">Traditional Gifts & Bowl Sets</Link></li>
             </ul>
           </div>
 
@@ -117,7 +131,18 @@ const Footer = () => {
 
         {/* Bottom Copyright & Payment Icons */}
         <div className="pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
-          <p>&copy; {new Date().getFullYear()} LuxeLoom Fine Jewellery. All rights reserved. Built with precision.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            <p>&copy; {new Date().getFullYear()} LuxeLoom Fine Jewellery. All rights reserved.</p>
+            <a
+              href="https://www.instagram.com/soniscreations.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-gold-400 hover:text-white transition-colors"
+            >
+              <Instagram className="w-3.5 h-3.5 text-pink-400" />
+              <span>@soniscreations.in</span>
+            </a>
+          </div>
           <div className="flex items-center gap-3 text-[10px] font-semibold tracking-wider text-zinc-400 uppercase">
             <span className="bg-zinc-800 px-2 py-1 rounded">Razorpay</span>
             <span className="bg-zinc-800 px-2 py-1 rounded">UPI</span>
